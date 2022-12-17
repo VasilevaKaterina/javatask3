@@ -1,0 +1,39 @@
+
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Задайте размерность массива: ");
+        int mass_size = scan.nextInt();
+        double[] mass1 = new double[mass_size];
+        for (int i = 0; i < mass_size; i++){
+            System.out.print("Введите элемент массива: "); //каждый элемент вводить с новой строки
+            mass1[i] = scan.nextDouble();
+        }
+        System.out.println("");
+        System.out.print("Исходный массив: ");
+        for (int i = 0; i < mass1.length; i++) {
+            System.out.print(mass1[i] + " ");
+        }
+        System.out.println();
+        double[] mass2 = new double[mass_size];
+        mass2[0] = mass1[0];
+        double nn = mass2[0];
+        int i = 1;
+        for (int j = 1; j < mass_size; j++) {
+            if (nn < mass1[j]) {
+                mass2[i] = mass1[j];
+                nn = mass1[j];
+                i++;
+            }
+        }
+        System.out.print("Массив после обработки: ");
+        for (int j = 0; j < mass1.length; j++) {
+            if (mass2[j] != 0) {
+                System.out.print(mass1[j] + " ");
+            }
+        }
+        scan.close();
+    }
+}
+
